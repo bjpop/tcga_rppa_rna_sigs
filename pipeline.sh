@@ -12,5 +12,11 @@
 # echo "sample_mmr_proteins"
 # python3 sample_mmr_proteins.py > data/sample_mmr_proteins.csv
 
-echo "sample_mmr_rna"
-python3 sample_mmr_rna.py > data/sample_mmr_rna.csv
+# echo "sample_mmr_rna"
+# python3 sample_mmr_rna.py > data/sample_mmr_rna.csv
+
+# echo "sample_mutation_counts"
+# python3 sample_mutation_counts.py > data/sample_mutation_counts.csv
+
+echo "join_samples.py"
+python3 join_samples.py > data/join_samples.csv

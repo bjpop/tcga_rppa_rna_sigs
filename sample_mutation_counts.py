@@ -14,7 +14,7 @@ reader = csv.DictReader(open(mutation_filename), delimiter='\t')
 print("sample,snvs,ms_snvs,indels,ms_indels")
 
 for row in reader:
-    sample = row['Sample']
+    sample = row['Sample'][:12]
     snvs = row['SNVs']
     ms_snvs = row['MS SNVs']
     indels = row['Indels']
