@@ -21,11 +21,14 @@
 # echo "join_samples"
 # python3 join_samples.py > data/join_samples.csv
 
-echo "remove low MLH1"
-python3 remove_low_mlh1.py > data/join_samples_low_mlh1.csv
+# echo "remove low MLH1"
+# python3 remove_low_mlh1.py > data/join_samples_low_mlh1.csv
 
-echo "split_by_cancer low MLH1"
-python3 split_by_cancer.py data/join_samples_low_mlh1.csv
+# echo "split_by_cancer low MLH1"
+# python3 split_by_cancer.py data/join_samples_low_mlh1.csv
 
 # echo "split_by_cancer"
 # python3 split_by_cancer.py data/join_samples.csv
+
+echo "stats"
+python3 stats.py > data/stats_trans.txt

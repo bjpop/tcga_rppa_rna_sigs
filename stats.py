@@ -22,9 +22,13 @@ def print_stats(cancer, filename):
         msh2_or_msh6_low = bool_to_int(row['MSH2_or_MSH6_protein_low'])
         msh2_or_msh6_very_low = bool_to_int(row['MSH2_or_MSH6_protein_very_low'])
         low_mlh1 = bool_to_int(row['mlh1_low'])
-        low_contingency[has_mmr_sig][msh2_or_msh6_low] += 1
-        very_low_contingency[has_mmr_sig][msh2_or_msh6_very_low] += 1
-        low_mlh1_contingency[has_mmr_sig][low_mlh1] += 1
+        # can transpose the contingency table and still get the same answer
+        #low_contingency[has_mmr_sig][msh2_or_msh6_low] += 1
+        low_contingency[msh2_or_msh6_low][has_mmr_sig] += 1
+        # very_low_contingency[has_mmr_sig][msh2_or_msh6_very_low] += 1
+        very_low_contingency[msh2_or_msh6_very_low][has_mmr_sig] += 1
+        # low_mlh1_contingency[has_mmr_sig][low_mlh1] += 1
+        low_mlh1_contingency[low_mlh1][has_mmr_sig] += 1
     oddsratio_low, pvalue_low = stats.fisher_exact(low_contingency)
     oddsratio_very_low, pvalue_very_low = stats.fisher_exact(very_low_contingency)
     oddsratio_mlh1, pvalue_mlh1 = stats.fisher_exact(low_mlh1_contingency)
