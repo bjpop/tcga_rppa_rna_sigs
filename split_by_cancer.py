@@ -8,7 +8,8 @@ import os.path
 
 cancer_types = ['PRAD', 'UCEC', 'COAD']
 
-joined_filename = "data/join_samples.csv"
+# joined_filename = "data/join_samples.csv"
+joined_filename = sys.argv[1]
 
 reader = csv.reader(open(joined_filename))
 header = next(reader)

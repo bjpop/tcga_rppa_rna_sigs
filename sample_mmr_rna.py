@@ -57,8 +57,9 @@ for rna_filename in files:
     norm_log_msh6 = math.log(msh6_count, 2) / trimmed_log_mean
     norm_log_msh3 = math.log(msh3_count, 2) / trimmed_log_mean
     norm_log_pms2 = math.log(pms2_count, 2) / trimmed_log_mean
-    results.append((sample, str(norm_log_mlh1), str(norm_log_msh2), str(norm_log_msh6), str(norm_log_msh3), str(norm_log_pms2)))
+    mlh1_low = norm_log_mlh1 < 1.5
+    results.append((sample, str(norm_log_mlh1), str(mlh1_low), str(norm_log_msh2), str(norm_log_msh6), str(norm_log_msh3), str(norm_log_pms2)))
 
-print("sample,mlh1_log_norm,msh2_log_norm,msh6_log_norm,msh3_log_norm,pms2_log_norm")
+print("sample,mlh1_log_norm,mlh1_low,msh2_log_norm,msh6_log_norm,msh3_log_norm,pms2_log_norm")
 for r in results:
     print(",".join(r))
