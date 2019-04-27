@@ -23,7 +23,7 @@ for row in reader:
     if cancer in cancer_types:
         cancer_rows[cancer].append(row)
 
-print("sample,MSH2_protein,MSH2_protein_z,MSH2_protein_low,MSH2_protein_very_low,MSH6_protein,MSH6_protein_z,MSH6_protein_low,MSH6_protein_very_low")
+print("sample,MSH2_protein,MSH2_protein_z,MSH2_protein_low,MSH2_protein_very_low,MSH6_protein,MSH6_protein_z,MSH6_protein_low,MSH6_protein_very_low,MSH2_or_MSH6_protein_low,MSH2_or_MSH6_protein_very_low")
 
 for cancer in cancer_rows:
     msh2_levels = []
@@ -53,4 +53,6 @@ for cancer in cancer_rows:
         msh2_very_low = msh2_z <= -1.5
         msh6_low = msh6_z <= -1.0
         msh6_very_low = msh6_z <= -1.5
-        print("{},{},{},{},{},{},{},{},{}".format(sample, msh2, msh2_z, msh2_low, msh2_very_low, msh6, msh6_z, msh6_low, msh6_very_low))
+        msh2_or_msh6_low = msh2_low or msh6_low
+        msh3_or_msh6_very_low = msh2_very_low or msh6_very_low
+        print("{},{},{},{},{},{},{},{},{},{},{}".format(sample, msh2, msh2_z, msh2_low, msh2_very_low, msh6, msh6_z, msh6_low, msh6_very_low,msh2_or_msh6_low,msh3_or_msh6_very_low))
